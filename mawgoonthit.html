@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maw Goon Thit School - မော်ကွန်းသစ်</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pyidaungsu', 'Myanmar3', 'Masterpiece Uni Sans', sans-serif;
+        }
+        
+        :root {
+            --primary: #2c5aa0;
+            --secondary: #f9a826;
+            --accent: #d32f2f;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #1e3a6e);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #e59400;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Mission Section */
+        .mission {
+            background: var(--light);
+        }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .mission-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mission-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .mission-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+        
+        .program-content {
+            padding: 20px;
+        }
+        
+        .program-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Admission Section */
+        .admission {
+            background: linear-gradient(135deg, var(--primary), #1e3a6e);
+            color: white;
+        }
+        
+        .admission-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .admission-content h2 {
+            margin-bottom: 20px;
+        }
+        
+        .admission-content p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h1>Maw Goon Thit School</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">ပင်မစာမျက်နှာ</a></li>
+                        <li><a href="#about">ကျောင်းအကြောင်း</a></li>
+                        <li><a href="#mission">ရည်မှန်းချက်</a></li>
+                        <li><a href="#programs">သင်တန်းများ</a></li>
+                        <li><a href="#admission">စာရင်းသွင်းရန်</a></li>
+                        <li><a href="#contact">ဆက်သွယ်ရန်</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>မော်ကွန်းသစ်ကျောင်း - အနာဂတ်ပညာရေး</h2>
+            <p>ကလေးတိုင်း ပညာသင်ကြားခွင့်ရရှိရေး၊ ပညာရေးဖွံ့ဖြိုးတိုးတက်ရေးအတွက် ဆောင်ရွက်လျက်ရှိပါသည်</p>
+            <div style="margin-top: 30px;">
+                <a href="#admission" class="btn">စာရင်းသွင်းရန်</a>
+                <a href="#about" class="btn btn-outline" style="margin-left: 15px;">ဆက်လက်ဖတ်ရှုရန်</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>ကျောင်းအကြောင်း</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Maw Goon Thit ကျောင်းမှကြိုဆိုပါသည်</h3>
+                    <p>Maw Goon Thit ကျောင်းကို ၂၀၁၀ ပြည့်နှစ်တွင် စတင်တည်ထောင်ခဲ့ပြီး ပညာရေးဖွံ့ဖြိုးတိုးတက်မှုနှင့် ကလေးတိုင်းပညာသင်ကြားခွင့်ရရှိရေးအတွက် ဆောင်ရွက်လျက်ရှိပါသည်။</p>
+                    <p>ကျွန်ုပ်တို့၏ ရည်မှန်းချက်မှာ ကျောင်းသား/သူများအား အရည်အသွေးပြည့်ဝသော ပညာရေးပေးပြီး နိုင်ငံတော်၏အနာဂတ်အတွက် ကျေးဇူးပြုနိုင်မည့် လူသားကောင်းများ ဖြစ်ထွန်းလာစေရန် ဖြစ်ပါသည်။</p>
+                    <p>ကျောင်းတွင် KG မှ Grade 10 အထိ သင်ကြားပေးလျက်ရှိပြီး ခေတ်မီသင်ထောက်ကူပစ္စည်းများ၊ အားကစားကွင်းများ၊ စာကြည့်တိုက်နှင့် သိပ္ပံလက်တွေ့ခန်းများ ပြည့်စုံစွာတပ်ဆင်ထားပါသည်။</p>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">ဆက်သွယ်ရန်</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Maw Goon Thit School">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>ကျွန်ုပ်တို့၏ ရည်မှန်းချက်များ</h2>
+            </div>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>ပညာရေး</h3>
+                    <p>အရည်အသွေးပြည့်ဝသော ပညာရေးကို ကလေးတိုင်းရရှိစေရန် ဆောင်ရွက်ခြင်း</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon"><i class="fas fa-heart"></i></div>
+                    <h3>စာနာထောက်ထားမှု</h3>
+                    <p>ကျေးဇူးတရား၊ မေတ္တာနှင့် စာနာထောက်ထားမှုတို့ကို သင်ကြားပေးခြင်း</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon"><i class="fas fa-users"></i></div>
+                    <h3>လူမှုအသိုင်းအဝိုင်း</h3>
+                    <p>လူမှုအသိုင်းအဝိုင်းအတွင်း အပြုသဘောဆောင်သော ပြောင်းလဲမှုများ ဖန်တီးပေးခြင်း</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>သင်တန်းများ</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kindergarten">
+                    </div>
+                    <div class="program-content">
+                        <h3>သူငယ်တန်း (KG)</h3>
+                        <p>အသက် ၃ နှစ်မှ ၅ နှစ်အရွယ် ကလေးငယ်များအတွက် ကစားခြင်းဖြင့် သင်ယူနည်းများ</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Primary School">
+                    </div>
+                    <div class="program-content">
+                        <h3>မူလတန်း (Grade 1-5)</h3>
+                        <p>အခြေခံပညာရပ်များကို ခိုင်မာစွာ တည်ဆောက်ပေးသော သင်ရိုးညွှန်းတမ်းများ</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Middle School">
+                    </div>
+                    <div class="program-content">
+                        <h3>အလယ်တန်း (Grade 6-8)</h3>
+                        <p>စာပေ၊ သင်္ချာ၊ သိပ္ပံနှင့် ဘာသာစကားများကို နက်ရှိုင်းစွာ သင်ကြားပေးခြင်း</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="High School">
+                    </div>
+                    <div class="program-content">
+                        <h3>အထက်တန်း (Grade 9-10)</h3>
+                        <p>တက္ကသိုလ်ဝင်တန်းအောင်မြင်ရန် ပြင်ဆင်ပေးသော သင်ရိုးများ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Section -->
+    <section class="admission" id="admission">
+        <div class="container">
+            <div class="admission-content">
+                <h2>စာရင်းသွင်းရန်</h2>
+                <p>မေတ္တာရွင်ကျောင်းတွင် သင့်ကလေး၏ပညာရေးခရီးကို စတင်လိုက်ပါ။ ကျွန်ုပ်တို့၏ စာရင်းသွင်းလျှောက်ထားရန် လုပ်ငန်းစဉ်များကို စတင်လိုက်ပါ။</p>
+                <a href="#contact" class="btn">စာရင်းသွင်းရန် အချက်အလက်များ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>ဆက်သွယ်ရန်</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>ဆက်သွယ်ရန်အချက်အလက်များ</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>လိပ်စာ</h4>
+                            <p>အမှတ် ၁၂၃၊ ပညာရေးလမ်း၊ စမ်းချောင်းမြို့နယ်၊ ရန်ကုန်မြို့</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>ဖုန်းနံပါတ်</h4>
+                            <p>၀၉-၁၂၃၄၅၆၇၈၉, ၀၉-၉၈၇၆၅၄၃၂၁</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>အီးမေးလ်</h4>
+                            <p>info@mawgoonthit.edu.mm</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>ကျောင်းအချိန်ဇယား</h4>
+                            <p>တနင်္လာမှ သောကြာ - မနက် ၈:၀၀ မှ ညနေ ၃:၀၀ အထိ</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>ဆက်သွယ်ရန်ပုံစံ</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">အမည်</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">ဖုန်းနံပါတ်</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">အီးမေးလ်</label>
+                            <input type="email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="student">ကျောင်းသား/သူ အသက်</label>
+                            <input type="number" id="student" min="3" max="16">
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">စိတ်ဝင်စားသော တန်းအဆင့်</label>
+                            <select id="grade">
+                                <option value="">တန်းအဆင့်ရွေးပါ</option>
+                                <option value="kg">သူငယ်တန်း (KG)</option>
+                                <option value="grade1">မူလတန်း (Grade 1-5)</option>
+                                <option value="grade6">အလယ်တန်း (Grade 6-8)</option>
+                                <option value="grade9">အထက်တန်း (Grade 9-10)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">မက်ဆေ့</label>
+                            <textarea id="message" placeholder="သင့်မေးခွန်းများ သို့မဟုတ် မှတ်ချက်များရေးသားပါ..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">ပို့ရန်</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Maw Goon Thit School</h3>
+                    <p>ကလေးတိုင်း ပညာသင်ကြားခွင့်ရရှိရေး၊ ပညာရေးဖွံ့ဖြိုးတိုးတက်ရေးအတွက် ဆောင်ရွက်လျက်ရှိသော ပညာရေးအဖွဲ့အစည်း</p>
+                </div>
+                <div class="footer-column">
+                    <h3>လင့်ခ်များ</h3>
+                    <ul>
+                        <li><a href="#home">ပင်မစာမျက်နှာ</a></li>
+                        <li><a href="#about">ကျောင်းအကြောင်း</a></li>
+                        <li><a href="#mission">ရည်မှန်းချက်</a></li>
+                        <li><a href="#programs">သင်တန်းများ</a></li>
+                        <li><a href="#admission">စာရင်းသွင်းရန်</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>ဆက်သွယ်ရန်</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> အမှတ် ၁၂၃၊ ပညာရေးလမ်း၊ ရန်ကုန်မြို့</li>
+                        <li><i class="fas fa-phone"></i> ၀၉-၁၂၃၄၅၆၇၈၉</li>
+                        <li><i class="fas fa-envelope"></i> info@mawgoonthit.edu.mm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Maw Goon Thit School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('ကျေးဇူးတင်ပါသည်! သင့်အချက်အလက်များကို လက်ခံရရှိပါပြီ။ ချက်ချင်းဆက်သွယ်ပေးပါမည်။');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
